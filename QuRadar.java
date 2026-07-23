@@ -6,6 +6,24 @@ import java.util.Map;
 import java.util.Optional;
 
 
+/**
+ * System Description:
+ * QuRadar is an advanced traffic radar surveillance and infraction management system built in Java. 
+ * It continuously processes observation feeds sent from physical radar units installed at traffic monitoring points.
+ * Each observation payload conveys critical metrics captured per passing vehicle, including license 
+ * plate identification, timestamp, vehicle category (Private car, Truck, Bus), recorded speed, 
+ * and seatbelt compliance status.
+ *
+ * Upon receiving an observation, QuRadar dynamically runs all registered traffic rules against the payload.
+ * When violations are detected, QuRadar generates a structured fine notice specifying each infraction and its 
+ * corresponding penalty in Egyptian Pounds (EGP), prints the fine report formatted to standards, and retains 
+ * aggregated statistics for system-wide auditing.
+ *
+ * Extensibility Architecture:
+ * Designed following the Open-Closed Principle (OCP) using the Strategy Pattern. Rules implement the 
+ * {@link Rule} interface and are registered dynamically via {@link #addRule(Rule)}, enabling new traffic policies 
+ * to be added without modifying the core QuRadar implementation.
+ */
 public class QuRadar {
     private final List<Rule> rules = new ArrayList<>();
     private final List<Fine> issuedFines = new ArrayList<>();

@@ -1,35 +1,6 @@
 # ⚡ QuRadar - Traffic Monitoring System
 
-An extensible, clean traffic surveillance and violation enforcement system built in pure Java. `QuRadar` processes real-time radar payload observations (vehicle classification, license plate, speed, timestamp, seatbelt compliance), evaluates dynamic traffic safety rules, issues itemized fine notices, and provides real-time audit statistics.
-
----
-
-## 🌟 Key Features
-
-- 🚗 **Multi-Vehicle Classification**: Handles observations for Private Cars, Trucks, Buses, and custom vehicle categories.
-- 📐 **Extensible Rule Engine (Open-Closed Principle)**: Built using the Strategy Pattern (`Rule` interface). New traffic safety rules can be registered dynamically without modifying core system logic.
-- 🧾 **Itemized Fine Generation**: Generates and prints formatted fine tickets specifying infraction details and fees in EGP.
-- 📊 **System Auditing & Analytics**:
-  - `getAllPossibleFines()`: Aggregates fines per vehicle plate number with total fee amounts.
-  - `getAllViolatedRulesWithCount()`: Tracks infraction counts for every registered traffic rule.
-
----
-
-## 📐 Architecture & Extensibility
-
-```
-                                 +---------------------+
-                                 |  RadarObservation   |
-                                 +---------------------+
-                                            |
-                                            v
-+-------------------+   addRule()   +-------------------+
-|  Rule (Interface) | ----------->  |      QuRadar      |
-+-------------------+               +-------------------+
-  |               |                           |
-  v               v                           v
-SeatbeltRule    SpeedLimitRule          Fine / Violation Output
-```
+A traffic surveillance and violation enforcement system built in pure Java.
 
 ---
 

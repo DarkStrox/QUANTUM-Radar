@@ -1,6 +1,10 @@
 # Ignore Java compiled class files
 *.class
 
+# Ignore Python compiled bytecode & cache
+__pycache__/
+*.pyc
+
 # Ignore IDE settings & OS files
 .vscode/
 .idea/
